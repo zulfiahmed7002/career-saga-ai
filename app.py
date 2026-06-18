@@ -12,7 +12,7 @@ app.secret_key = "career-saga-ai-demo-secret-key"
 client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
 )
-
+print("API KEY FOUND:", bool(os.getenv("GEMINI_API_KEY")))
 
 def get_history():
     """Return the current chat history stored in the user's session."""
@@ -90,3 +90,4 @@ def clear_history():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
