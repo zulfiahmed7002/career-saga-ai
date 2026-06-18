@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerSaga AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="site-header">
+            <div class="brand">
+                <div class="logo-mark">CS</div>
+                <div>
+                    <h1>CareerSaga AI</h1>
+                    <p>Your career growth assistant</p>
+                </div>
+            </div>
+
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+                <span id="themeIcon">☾</span>
+            </button>
+        </header>
+
+        <main class="chat-layout">
+            <section class="intro-panel" aria-label="Agent capabilities">
+                <h2>Plan your next career move</h2>
+                <p>Ask about roadmaps, programming concepts, interviews, resumes, and role choices.</p>
+
+                <div class="prompt-grid">
+                    <button class="prompt-card" type="button">Create a Python developer roadmap</button>
+                    <button class="prompt-card" type="button">Explain APIs in simple words</button>
+                    <button class="prompt-card" type="button">Give me interview tips</button>
+                    <button class="prompt-card" type="button">How can I improve my resume?</button>
+                </div>
+            </section>
+
+            <section class="chat-panel" aria-label="CareerSaga AI chat">
+                <div class="chat-header">
+                    <div>
+                        <h2>Career Chat</h2>
+                        <p>Session history is remembered while you chat.</p>
+                    </div>
+                    <button class="clear-button" id="clearChat" type="button">Clear</button>
+                </div>
+
+                <div class="messages" id="messages" aria-live="polite"></div>
+
+                <div class="typing-indicator" id="typingIndicator" hidden>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <form class="chat-form" id="chatForm">
+                    <label class="sr-only" for="userInput">Type your career question</label>
+                    <textarea id="userInput" placeholder="Ask CareerSaga AI anything..." rows="1" required></textarea>
+                    <button id="sendButton" type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
