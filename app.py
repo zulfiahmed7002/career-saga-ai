@@ -42,8 +42,9 @@ def build_ai_response(message):
         )
 
         return response.text
-
     except Exception as e:
+        if "429" in str(e):
+            return "⚠️ Daily Gemini API limit reached. Please try again later."
         return f"Error: {str(e)}"
 
 
@@ -64,9 +65,11 @@ def chat():
 
     history = get_history()
     history.append({"role": "user", "content": user_message})
+    history = history[-8]
 
     ai_message = build_ai_response(user_message)
     history.append({"role": "ai", "content": ai_message})
+    history = history[-8]
 
     # Mark the session as modified because we changed a nested list.
     session["history"] = history
