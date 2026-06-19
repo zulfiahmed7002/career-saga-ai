@@ -65,7 +65,7 @@ def chat():
 
     history = get_history()
     history.append({"role": "user", "content": user_message})
-    history = history[-8]
+    history = history[-8:]
 
     ai_message = build_ai_response(user_message)
     history.append({"role": "ai", "content": ai_message})
